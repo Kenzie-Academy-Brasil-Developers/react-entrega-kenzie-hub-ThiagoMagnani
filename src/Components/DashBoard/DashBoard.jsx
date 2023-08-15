@@ -1,4 +1,4 @@
-import styleDash from "../Styles/dashboard.module.scss";
+import styleDash from "../Styles/dashBoard.module.scss";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
