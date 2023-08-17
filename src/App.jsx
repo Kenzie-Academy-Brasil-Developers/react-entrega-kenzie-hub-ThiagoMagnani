@@ -1,4 +1,4 @@
-import { RoutesMain } from "./Components/Routes/RoutesMain";
+import { RoutesMain } from "./Routes/RoutesMain";
 
 function App() {
   return (

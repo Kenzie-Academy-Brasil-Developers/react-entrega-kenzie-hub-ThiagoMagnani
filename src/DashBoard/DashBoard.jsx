@@ -1,7 +1,7 @@
-import styleDash from "../Styles/dashBoard.module.scss";
+import styleDash from "../Components/Styles/dashBoard.module.scss";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { api } from "../services/api";
+import { api } from "../Components/services/api";
 
 export const DashBoard = () => {
   const [userData, setUserData] = useState(null);

@@ -1,9 +1,9 @@
-import styleReg from "../Styles/pagReg.module.scss";
+import styleReg from "../Components/Styles/pagReg.module.scss";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchemaReg } from "../formSchema/formReg";
-import { api } from "../services/api";
+import { api } from "../Components/services/api";
 
 export const PagRegister = () => {
   const {
