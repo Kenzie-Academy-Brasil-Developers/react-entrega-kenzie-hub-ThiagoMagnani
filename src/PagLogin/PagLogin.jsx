@@ -1,12 +1,14 @@
 import style from "../Components/Styles/style.module.scss";
 import styleLogin from "../Components/Styles/pagLogin.module.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchemaLogin } from "../formSchema/formLogin";
-import axios from "axios";
+import { useUserContext } from "../providers/ProductContext";
 
 export const PagLogin = () => {
+  const { userLogin } = useUserContext();
+
   const {
     register,
     handleSubmit,
@@ -15,25 +17,9 @@ export const PagLogin = () => {
     resolver: zodResolver(formSchemaLogin),
   });
 
-  const navigate = useNavigate();
-
-  const submit = async (formData) => {
-    try {
-      const response = await axios.post(
-        "https://kenziehub.herokuapp.com/sessions",
-        formData
-      );
-      console.log(response);
-      localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Erro ao realizar o login:", error);
-    }
-  };
-
   return (
     <>
-      <form onSubmit={handleSubmit(submit)}>
+      <form onSubmit={handleSubmit(userLogin)}>
         <div className={styleLogin.pagLogin}>
           <h1 className={styleLogin.headerLogin}>Kenzie Hub</h1>
           <div className={styleLogin.pagLoginAll}>

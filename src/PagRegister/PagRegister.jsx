@@ -1,11 +1,13 @@
 import styleReg from "../Components/Styles/pagReg.module.scss";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchemaReg } from "../formSchema/formReg";
-import { api } from "../Components/services/api";
+import { useUserContext } from "../providers/ProductContext";
 
 export const PagRegister = () => {
+  const { userRegister } = useUserContext();
+
   const {
     register,
     handleSubmit,
@@ -14,20 +16,10 @@ export const PagRegister = () => {
     resolver: zodResolver(formSchemaReg),
   });
 
-  const navigate = useNavigate();
-
-  const submit = async (formData) => {
-    try {
-      const response = await api.post("/users", formData);
-      navigate("/");
-    } catch (error) {
-      console.error("Erro ao realizar o registro:", error);
-    }
-  };
   return (
     <>
       <div className={styleReg.pagReg}>
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(userRegister)}>
           <div className={styleReg.headerReg}>
             <h1 className={styleReg.titleHeader}>Kenzie Hub</h1>
             <Link to="/">

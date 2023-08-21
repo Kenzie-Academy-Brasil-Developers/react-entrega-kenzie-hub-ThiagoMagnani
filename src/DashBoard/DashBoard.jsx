@@ -1,29 +1,8 @@
 import styleDash from "../Components/Styles/dashBoard.module.scss";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { api } from "../Components/services/api";
+import { useUserContext } from "../providers/ProductContext";
 
 export const DashBoard = () => {
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const token = localStorage.getItem("token");
-      try {
-        const response = await api.get("/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setUserData(response.data);
-        console.log(response);
-      } catch (error) {
-        console.error("Erro ao obter os dados do usuário:", error);
-      }
-    };
-
-    fetchUserData();
-  }, []);
+  const { user, userLogout } = useUserContext();
 
   return (
     <>
@@ -32,21 +11,16 @@ export const DashBoard = () => {
           <div className={styleDash.screenContainner}>
             <div className={styleDash.header}>
               <h2 className={styleDash.titleHeader}>Kenzie Hub</h2>
-              <Link to="/">
-                <button
-                  className={styleDash.buttonHeader}
-                  onClick={() => localStorage.removeItem("token")}
-                >
-                  Sair
-                </button>
-              </Link>
+              <button className={styleDash.buttonHeader} onClick={userLogout}>
+                Sair
+              </button>
             </div>
           </div>
           <hr className={styleDash.border} />
           <div className={styleDash.screenContainner}>
             <div className={styleDash.subHeader}>
-              <h3>Olá, {userData?.name} </h3>
-              <p className={styleDash.textSub}> {userData?.course_module} </p>
+              <h3>Olá, {user?.name} </h3>
+              <p className={styleDash.textSub}> {user?.course_module} </p>
             </div>
           </div>
           <hr className={styleDash.border} />
