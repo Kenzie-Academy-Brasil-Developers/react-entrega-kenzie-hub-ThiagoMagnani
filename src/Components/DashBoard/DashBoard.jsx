@@ -1,4 +1,4 @@
-import styleDash from "../Components/Styles/dashBoard.module.scss";
+import styleDash from "../../Styles/dashBoard.module.scss";
 import { useUserContext } from "../providers/ProductContext";
 
 export const DashBoard = () => {

@@ -1,5 +1,5 @@
-import style from "../Components/Styles/style.module.scss";
-import styleLogin from "../Components/Styles/pagLogin.module.scss";
+import style from "../../Styles/style.module.scss";
+import styleLogin from "../../Styles/pagLogin.module.scss";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
