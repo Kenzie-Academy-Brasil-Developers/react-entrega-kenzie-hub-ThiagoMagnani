@@ -1,5 +1,6 @@
 import styleDash from "../../Styles/dashBoard.module.scss";
-import { useUserContext } from "../providers/ProductContext";
+import { UserContext, useUserContext } from "../providers/ProductContext";
+import { TechList } from "../TechList/techList";
 
 export const DashBoard = () => {
   const { user, userLogout } = useUserContext();
@@ -26,11 +27,7 @@ export const DashBoard = () => {
           <hr className={styleDash.border} />
           <div className={styleDash.screenContainner}>
             <div>
-              <h3>Que pena! Estamos em desenvolvimento :( </h3>
-              <p className={styleDash.textInfo}>
-                Nossa aplicação está em desenvolvimento, em breve
-                teremosnovidades
-              </p>
+              <TechList />
             </div>
           </div>
         </div>

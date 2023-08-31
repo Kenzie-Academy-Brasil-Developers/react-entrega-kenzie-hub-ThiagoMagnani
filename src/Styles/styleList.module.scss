@@ -1,0 +1,78 @@
+.headerList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonAdd {
+  display: flex;
+  background-color: transparent;
+  border: none;
+}
+
+.buttonAdd:hover {
+  filter: brightness(1.3);
+}
+
+.boxList {
+  background-color: #212529;
+  border-radius: 4px;
+  display: flex;
+}
+
+.list {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 0;
+}
+
+.itensList {
+  width: 91%;
+  background-color: #121214;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 1em;
+}
+
+.textList {
+  color: #868e96;
+}
+
+.buttonItensList {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.buttonEdit,
+.buttonRemove {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 1.8em;
+}
+
+.buttonEdit:hover,
+.buttonRemove:hover {
+  background-color: #212529;
+  border-radius: 4px;
+}
+
+.textEmpty {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #868e96;
+  font-size: 0.9em;
+}
