@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import styleList from "../../Styles/styleList.module.scss";
 import img from "../../assets/ButtonAdd.png";
-import { UserContext } from "../providers/ProductContext";
+import { TechContext } from "../providers/TechnologieContext";
 import { CreateTechModal } from "../Modal/CreateTechModal";
 import { TechCard } from "../TechCard/techCard";
 import { EditTechModal } from "../Modal/EditTechModal";
+import { UserContext } from "../providers/ProductContext";
 
 export const TechList = () => {
-  const { techList, addNewTech, setIsOpen, editingCard } =
-    useContext(UserContext);
+  const { techList } = useContext(UserContext);
+  const { addNewTech, setIsOpen, editingCard } = useContext(TechContext);
 
   return (
     <>

@@ -1,14 +1,14 @@
 import styleModal from "../../Styles/styleModal.module.scss";
 import { useContext } from "react";
-import { UserContext } from "../providers/ProductContext";
+import { TechContext } from "../providers/TechnologieContext";
 import { useForm } from "react-hook-form";
 
 export const EditTechModal = ({ title }) => {
-  const { setEditingCard, editingCard, cardUpdate } = useContext(UserContext);
+  const { setEditingCard, editingCard, cardUpdate } = useContext(TechContext);
   const { register, handleSubmit } = useForm({
     values: {
-      title: editingCard.title,
-      status: editingCard.status,
+      title: editingCard?.title || "",
+      status: editingCard?.status || "",
     },
   });
 

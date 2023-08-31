@@ -1,5 +1,5 @@
 import styleDash from "../../Styles/dashBoard.module.scss";
-import { UserContext, useUserContext } from "../providers/ProductContext";
+import { useUserContext } from "../providers/ProductContext";
 import { TechList } from "../TechList/techList";
 
 export const DashBoard = () => {

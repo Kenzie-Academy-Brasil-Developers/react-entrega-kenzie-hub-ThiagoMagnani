@@ -1,10 +1,10 @@
 import styleModal from "../../Styles/styleModal.module.scss";
 import { useContext } from "react";
-import { UserContext } from "../providers/ProductContext";
+import { TechContext } from "../providers/TechnologieContext";
 import { useForm } from "react-hook-form";
 
 export const CreateTechModal = () => {
-  const { isOpen, setIsOpen, addNewTech } = useContext(UserContext);
+  const { isOpen, setIsOpen, addNewTech } = useContext(TechContext);
   const { register, handleSubmit } = useForm();
 
   const closeModal = () => {

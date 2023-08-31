@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
@@ -8,9 +8,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
   const [techList, setTechList] = useState([]);
-  const [editingCard, setEditingCard] = useState(null);
 
   useEffect(() => {
     const autoLogin = async () => {
@@ -60,57 +58,6 @@ export const UserProvider = ({ children }) => {
     navigate("/");
   };
 
-  const addNewTech = async (formData) => {
-    try {
-      const token = localStorage.getItem("token");
-      const { data } = await api.post("/users/techs", formData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setTechList([...techList, data]);
-    } catch (error) {
-      alert("Tecnologia ja criada");
-    }
-  };
-
-  const cardUpdate = async (formData) => {
-    try {
-      const token = localStorage.getItem("token");
-      const { data } = await api.put(
-        `/users/techs/${editingCard.id}`,
-        formData,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-
-      const newCardList = techList.map((card) => {
-        if (card.id === editingCard.id) {
-          return data;
-        } else {
-          return card;
-        }
-      });
-
-      setTechList(newCardList);
-      setEditingCard(null);
-    } catch (error) {
-      console.log("Erro ao atualizar os dados do usuário", error);
-    }
-  };
-
-  const cardDelete = async (delId) => {
-    try {
-      const token = localStorage.getItem("token");
-      await api.delete(`/users/techs/${delId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const newCardList = techList.filter((post) => post.id !== delId);
-      setTechList(newCardList);
-    } catch (error) {
-      console.log("Erro ao excluir o card:", error);
-    }
-  };
-
   return (
     <UserContext.Provider
       value={{
@@ -119,14 +66,8 @@ export const UserProvider = ({ children }) => {
         userLogin,
         userLogout,
         loading,
-        setIsOpen,
-        isOpen,
         techList,
-        cardDelete,
-        addNewTech,
-        editingCard,
-        setEditingCard,
-        cardUpdate,
+        setTechList,
       }}
     >
       {children}

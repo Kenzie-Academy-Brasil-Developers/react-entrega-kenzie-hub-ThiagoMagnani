@@ -71,10 +71,9 @@
   border: 1px solid #343b41;
   outline: 0;
   border-radius: 4px;
-  width: 95%;
+  width: 98%;
   height: 2.5em;
   color: #f8f9fa;
-  padding: 0 0.6em;
 }
 
 .inputOption {
@@ -101,4 +100,10 @@
 
 .buttonAdd:hover {
   background-color: #ff4470;
+}
+
+@media (max-width: 650px) {
+  .modalBox {
+    width: 50%;
+  }
 }

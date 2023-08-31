@@ -2,10 +2,10 @@ import { useContext } from "react";
 import styleList from "../../Styles/styleList.module.scss";
 import ImgEdit from "../../assets/ButtonEdit.png";
 import ImgRemove from "../../assets/ButtonRemove.png";
-import { UserContext } from "../providers/ProductContext";
+import { TechContext } from "../providers/TechnologieContext";
 
 export const TechCard = ({ title, status, id, techAll }) => {
-  const { cardDelete, setEditingCard } = useContext(UserContext);
+  const { cardDelete, setEditingCard } = useContext(TechContext);
 
   return (
     <li className={styleList.itensList}>
